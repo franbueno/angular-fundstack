@@ -1,0 +1,34 @@
+@import '../../../theme/variables';
+
+form {
+  border: 1px solid white;
+  padding: 15px;
+}
+
+.type-ahead {
+  width: 90% !important;
+  @media screen and (max-width: $break-sm) {
+    font-size: 16px;
+  }
+}
+
+.suggestions-status {
+  text-align: center;
+}
+
+i {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+
+  &:before {
+    content: "\f110";
+    font-family: FontAwesome;
+    font-size:20px;
+    position: absolute;
+    top: 0;
+  }
+}
+

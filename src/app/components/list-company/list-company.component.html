@@ -1,0 +1,35 @@
+<div class="list-company">
+  <table class="table mt-3 company-table"
+         *ngIf="(companies | async).length">
+    <thead>
+    <tr>
+      <th width="40%"> Name </th>
+        <th width="40%"> Domain </th>
+        <th width="20%"> Created </th>
+      <th width="5"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let company of companies | async">
+      <tr class="company-table__row company-list">
+        <td>
+          <img *ngIf="company.logo" [src]="company.logo" width="16">
+          {{company.name}}
+        </td>
+        <td>
+          {{company.domain}}
+        </td>
+          <td>
+              {{ company.created | date :  "dd.MM.y" }}
+          </td>
+        <td>
+          <button class="company-table__remove-btn"
+                  (click)="deleteCompany(company); $event.stopPropagation()">
+            <i class="fa fa-trash-o"></i>
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>

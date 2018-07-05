@@ -1,0 +1,28 @@
+<div class="new-company">
+    <form class="form-inline" [formGroup]="companyForm" (ngSubmit)="onSubmit(companyForm.value)" novalidate>
+            <input type="text"
+                   class="form-control type-ahead"
+                   placeholder="Add new company..."
+                   autofocus
+                   formControlName="name"
+                   [ngbTypeahead]="search"
+                   [resultTemplate]="rt"
+                   [(ngModel)]="model"
+                   (selectItem)="onCompanySelect($event)"/>
+        <div *ngIf="searching">
+             <span>
+                <i class="fa fa-circle-o-notch fs-spin"></i>
+             </span>
+        </div>
+    </form>
+
+    <div class="suggestions-status" *ngIf="searchFailed">
+        <strong>No results</strong><br>
+        Press <code>Enter</code> to <span class="link">manually enter details</span>
+    </div>
+
+    <ng-template #rt let-company="result" let-t="term">
+        <img [src]="company.logo" width="16">
+        {{company.name}}
+    </ng-template>
+</div>

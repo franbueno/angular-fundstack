@@ -1,0 +1,34 @@
+@import '../theme/variables';
+
+.company {
+  padding: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba($dark, .9);
+  background-color: rgba($white, .03);
+
+  &__header {
+    margin: 40px 0 40px;
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: 200;
+  }
+
+  @media screen and (max-width: $break-sm) {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    .company__header {
+      margin: 20px 0 20px;
+    }
+
+    .company__title {
+      font-weight: 700;
+      font-size: 22px;
+    }
+  }
+}

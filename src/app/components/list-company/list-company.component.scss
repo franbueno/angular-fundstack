@@ -1,0 +1,72 @@
+@import '../../../theme/variables';
+.company-table {
+  color: $white;
+  font-size: 18px;
+
+  tbody {
+    max-height: 600px;
+    overflow: scroll;
+  }
+  td, th {
+    border-color: #484a51;
+
+    &:first-child {
+      border-radius: 3px 0 0 3px;
+    }
+
+    &:last-child {
+      border-radius: 0 3px 0 3px;
+    }
+  }
+
+  th {
+    border-top: none;
+    border-bottom: none;
+    color: $red;
+    text-shadow: 0 0 3px rgba($red + 30, .3);
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+  &__row {
+    cursor: pointer;
+    transition: .2s all;
+
+    &:hover {
+      background-color: rgba($white, .1);
+
+      .company-table__remove-btn {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__expanded-row {
+    overflow: hidden;
+  }
+
+  &__remove-btn {
+    background-color: transparent;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    transition: .3s all;
+    opacity: 0;
+    outline: none;
+    transform: translateX(5px);
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  @media screen and (max-width: $break-sm) {
+    font-size: 16px;
+
+    th {
+      font-size: 18px;
+      font-weight: 300;
+    }
+  }
+}

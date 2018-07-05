@@ -1,0 +1,22 @@
+<div class="company-details">
+  <div class="company-details__content" *ngIf="companies && companies.length">
+    <div class="d-flex align-items-center">
+      <h4 class="mb-1">
+        <i class="fa fa-refresh fa-spin fa-fw"
+           *ngIf="isUpdatingData">
+        </i>
+      </h4>
+    </div>
+    <chart class="company-details__chart"
+           [type]="'line'"
+           [data]="data"
+           [options]="options">
+    </chart>
+  </div>
+  <div class="sk-folding-cube" *ngIf="!companies">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
+  </div>
+</div>
